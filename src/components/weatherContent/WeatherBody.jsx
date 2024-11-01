@@ -20,7 +20,7 @@ const WeatherBody = () => {
   return (
     <div>
       <p className="text-sm lg:text-lg font-bold uppercase mb-8">
-        the climate is {}
+        the climate is <span className="text-blue-400">{climate}</span>.
       </p>
       <ul className="space-y-6 lg:space-y-6">
         <WeatherBodyItem
