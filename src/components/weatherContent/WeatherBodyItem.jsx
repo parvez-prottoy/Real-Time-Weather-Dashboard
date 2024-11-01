@@ -1,11 +1,10 @@
-import temp from "../../assets/icons/temp-max.svg";
-const WeatherBodyItem = () => {
+const WeatherBodyItem = ({ text, value, icon }) => {
   return (
     <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
-      <span>Temp max</span>
+      <span>{text}</span>
       <div className="inline-flex space-x-4">
-        <p>19°</p>
-        <img src={temp} alt="temp-max" />
+        <p>{Math.round(value)}°</p>
+        <img src={icon} alt="temp-max" />
       </div>
     </li>
   );
