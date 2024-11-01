@@ -62,15 +62,23 @@ export const useWeather = () => {
     }
   };
   useEffect(() => {
+    let ignore = false;
     setLoading({
       ...loading,
       status: true,
       message: "Finding location...",
     });
+
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
-      fetchWeatherData(latitude, longitude);
+      if (!ignore) {
+        fetchWeatherData(latitude, longitude);
+      }
     });
+
+    return () => {
+      ignore = true;
+    };
   }, []);
   return {
     weather,
